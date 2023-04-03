@@ -9,6 +9,7 @@ arr[0] = "Qualquer";
 //adicionando valores
 arr[arr.length] = "Novo valor";
 
+//adicionando valores com push
 arr.push("Novo valor com push()");
 
 console.log(arr);
