@@ -1,4 +1,5 @@
 
-let stringResultadoTernario = (false)?"é verdade":"é mentira";
+let resposta = true;
+let stringResultadoTernario = (resposta)?"é verdade":"é mentira";
 
 console.log(stringResultadoTernario);
