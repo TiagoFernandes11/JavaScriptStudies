@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        // declaraçao de função
+        function funcao(){
+            document.write("Ola mundo<br>");
+        }
+
+        funcao();
+
+        //declaração por meio de constante
+        const ola = function(){
+            document.write("Ola mundo com const<br>");
+        }
+
+        ola();
+
+        //declaração com arrow function
+        const ola2 = () =>{
+            document.write("Ola mundo com arrow<br>");
+        }
+
+        ola2();
+
+        //declarando funcoes com retorno
+        let dia;
+        function obtemDiaSemana(){
+            return new Date().getDay();
+        }
+
+        dia = obtemDiaSemana();
+
+        function escreveDiaNaTela(fuction){
+            document.write("O dia de hoje é: " + fuction);
+        }
+
+        escreveDiaNaTela(dia);
+
+    </script>
+
+
+</body>
+</html>
