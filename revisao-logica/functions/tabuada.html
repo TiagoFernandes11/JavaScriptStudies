@@ -12,13 +12,13 @@
     <script>
 
         function inputNumero(){
-            let num = prompt("Digite o numero: ");
+            let num = parseInt(prompt("Digite o numero: "));
             return num;
         }
 
         function imprimeTabuada(numero){
             let count = 0;
-            
+
             while(count < 11){
                 document.write(`${numero} x ${count} = ${numero * count}<br>`)
                 count++;
