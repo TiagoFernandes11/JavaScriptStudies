@@ -1,5 +1,5 @@
 //falsy values - 0, "", NaN, undefined, null, false
-//truth - todos os demais
+//truthy - todos os demais
 
 let valor = 10;
 
