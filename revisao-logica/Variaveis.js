@@ -9,6 +9,7 @@ console.log(teste);
 teste = 10;
 console.log(teste);
 
+// declarando constantes
 const teste2 = 10;
 // não é possivel reatribuir valores a const
 console.log("imprimindo uma constante = " + teste2);
