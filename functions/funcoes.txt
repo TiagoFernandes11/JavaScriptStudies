@@ -3,7 +3,7 @@ Funções:
 - São tipos de objetos com a capacidade de
 serem invocados.
 
-- Podem ser Literais;
+- Podem ser Literais (sem a função new());
 - Em alguns casos, ocorre o hoisting;
 - São objetos de primeira classe;
 - No ES5 funções são a única maneira de
