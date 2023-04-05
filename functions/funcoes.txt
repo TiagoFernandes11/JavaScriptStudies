@@ -1,0 +1,14 @@
+Funções:
+
+- São tipos de objetos com a capacidade de
+serem invocados.
+
+- Podem ser Literais;
+- Em alguns casos, ocorre o hoisting;
+- São objetos de primeira classe;
+- No ES5 funções são a única maneira de
+gerar escopo;
+- Podem ser IIFE (Immediately invoked Funtion
+Expression);
+- Podem ter propriedades internas como arguments
+e name.
