@@ -8,7 +8,7 @@ serem invocados.
 - São objetos de primeira classe;
 - No ES5 funções são a única maneira de
 gerar escopo;
-- Podem ser IIFE (Immediately invoked Funtion
-Expression);
+- Podem ser IIFE (Immediately Invoked Funtion
+Expression) (Recursiva);
 - Podem ter propriedades internas como arguments
 e name.
