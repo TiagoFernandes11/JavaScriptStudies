@@ -10,3 +10,4 @@ function somar(){
 
 console.log("Total: " + somar(1,2,3,4,5,6,7,8));
 
+// arguments não funciona em arrow function
