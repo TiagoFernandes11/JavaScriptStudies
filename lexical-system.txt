@@ -1,0 +1,8 @@
+Tópicos do sistema Léxico:
+
+-instruções;
+-comentarios;
+-case sensitive;
+-palavras reservadas;
+-ponto e virgula;
+-nomear variaveis.
