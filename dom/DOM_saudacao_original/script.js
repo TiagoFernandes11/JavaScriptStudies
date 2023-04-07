@@ -1,5 +1,9 @@
 (function(){
         const nomeDoUsuario = "Tiago Fernandes Ribeiro";
         const elemento = document.getElementsByClassName("saudacao")[0];
-        elemento.innerHTML += "<b> " + nomeDoUsuario + "</b>";
+        if(nomeDoUsuario){
+                elemento.innerHTML += "<b> " + nomeDoUsuario + "</b>";
+        }else{
+                elemento.parentElement.style.display = "none";
+        }
 })();
