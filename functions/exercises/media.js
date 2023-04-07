@@ -10,4 +10,4 @@ function calcularMedia(){
     return soma/count;
 }
 
-console.log(calcularMedia(1,2));
+console.log("media:",calcularMedia(1,2));

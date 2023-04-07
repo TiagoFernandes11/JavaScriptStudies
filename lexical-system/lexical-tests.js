@@ -1,5 +1,5 @@
 function teste(){
-    console.log(this.teste);
+    console.log(this.name);
 }
 
 teste();
