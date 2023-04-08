@@ -5,5 +5,6 @@
                 elemento.innerHTML += "<b> " + nomeDoUsuario + "</b>";
         }else{
                 elemento.parentElement.style.display = "none";
+                //elemento.remove() -> removeria o elemento do HTML
         }
 })();
