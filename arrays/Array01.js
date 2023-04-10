@@ -15,6 +15,11 @@ const arr1 = arr.filter(function(elemento, i, functionArray){
     return typeof elemento === "number";
 })
 
+//modificando um array
+arr.map(function(elemento){
+    return elemento ** 2;
+})
+
 //iterando array
 console.log("Iteração forEach():")
 arr.forEach(function(elemento, i){
