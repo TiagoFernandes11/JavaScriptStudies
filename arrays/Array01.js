@@ -16,11 +16,12 @@ const arr1 = arr.filter(function(elemento, i, functionArray){
 })
 
 //iterando array
+console.log("Iteração forEach():")
 arr.forEach(function(elemento, i){
     console.log(i," : ",elemento)
 })
 
-console.log("Every number ? ", soNumeros)
-console.log("Some numeros? ",algunsNumeros);
-console.log("Filter number: ",arr1)
+console.log("Every numbers ? ", soNumeros)
+console.log("Some numbers? ",algunsNumeros);
+console.log("Filter numbers: ",arr1)
 console.log("Original array: ", arr)
