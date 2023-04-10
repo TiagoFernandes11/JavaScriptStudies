@@ -16,7 +16,7 @@ const arr1 = arr.filter(function(elemento, i, functionArray){
 })
 
 //modificando um array
-arr.map(function(elemento){
+const arr2 = arr.map(function(elemento){
     return elemento ** 2;
 })
 
@@ -26,7 +26,9 @@ arr.forEach(function(elemento, i){
     console.log(i," : ",elemento)
 })
 
+
 console.log("Every numbers ? ", soNumeros)
 console.log("Some numbers? ",algunsNumeros);
 console.log("Filter numbers: ",arr1)
 console.log("Original array: ", arr)
+console.log("Map array: ", arr2)
