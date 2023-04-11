@@ -139,6 +139,14 @@
       <script src="js/calc.js"></script>
 
       <script>
+        const INDICES_NOTAS = {
+          n1: 1,
+          n2: 2,
+          n3: 3,
+          n4: 4,
+          media : 5
+        }
+
         const trs = document.querySelectorAll("tbody tr");
 
         let x = 0;
@@ -149,15 +157,14 @@
           
 
           media = average(
-            parseFloat(tds[1].textContent),
-            parseFloat(tds[2].textContent),
-            parseFloat(tds[3].textContent),
-            parseFloat(tds[4].textContent)
+            parseFloat(tds[INDICES_NOTAS.n1].textContent),
+            parseFloat(tds[INDICES_NOTAS.n2].textContent),
+            parseFloat(tds[INDICES_NOTAS.n3].textContent),
+            parseFloat(tds[INDICES_NOTAS.n4].textContent)
           )
 
-          tds[5].textContent = media;
+          tds[INDICES_NOTAS.media].textContent = media;
 
-          console.log(media);
         }
         
       </script>
