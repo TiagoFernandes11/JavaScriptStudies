@@ -139,18 +139,28 @@
       <script src="js/calc.js"></script>
 
       <script>
-        let table = Array.from(document.querySelectorAll("tbody tr"));
-        
-        for(let i = 1; i < table.length; i++){
-          let aluno = table[i].querySelectorAll("td");
-          console.log(aluno[0].textContent);
+        const trs = document.querySelectorAll("tbody tr");
+
+        let x = 0;
+
+        while(trs[x]){
+
+          let tds = trs[x].querySelectorAll("td")
+          
+
+          media = avarege(
+            parseFloat(tds[1].textContent),
+            parseFloat(tds[2].textContent),
+            parseFloat(tds[3].textContent),
+            parseFloat(tds[4].textContent)
+          )
+
+          tds[5].textContent = media;
+
+          console.log(media);
+          x++
         }
         
-        
-        
-       
-        
-       
       </script>
       
 
