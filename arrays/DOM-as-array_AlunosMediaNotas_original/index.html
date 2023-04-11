@@ -145,7 +145,7 @@
 
         while(trs[x]){
 
-          let tds = trs[x].querySelectorAll("td")
+          let tds = trs[x++].querySelectorAll("td")
           
 
           media = average(
@@ -158,7 +158,6 @@
           tds[5].textContent = media;
 
           console.log(media);
-          x++
         }
         
       </script>
