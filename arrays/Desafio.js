@@ -1,13 +1,13 @@
-function soma(){
+function sum(){
     const numbers = [...arguments];
-    return numbers.reduce(function(soma, atual){
-        return soma + atual;
+    return numbers.reduce(function(sum, atual){
+        return sum + atual;
     }, 0)
 };
 
 function average(){
-    return soma(...arguments)/ arguments.length;
+    return sum(...arguments)/ arguments.length;
 }
 
-console.log(soma(1,2,3,4,5));
+console.log(sum(1,2,3,4,5));
 console.log(average(1,2,3,4,5));
