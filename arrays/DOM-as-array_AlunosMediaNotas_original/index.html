@@ -135,6 +135,23 @@
 
       <!--JavaScript at end of body for optimized loading-->
       <!-- <script type="text/javascript" src="js/materialize.min.js"></script> -->
+
+      <script src="js/calc.js"></script>
+
+      <script>
+        let table = Array.from(document.querySelectorAll("tbody tr"));
+        
+        for(let i = 1; i < table.length; i++){
+          let aluno = table[i].querySelectorAll("td");
+          console.log(aluno[0].textContent);
+        }
+        
+        
+        
+       
+        
+       
+      </script>
       
 
     </body>
