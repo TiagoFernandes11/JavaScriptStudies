@@ -30,11 +30,11 @@
         <thead>
           <tr>
               <th>Nome</th>
-              <th>Nota 1</th>
-              <th>Nota 2</th>
-              <th>Nota 3</th>
-              <th>Nota 4</th>
-              <th>Média</th>
+              <th aluno-nota="n1">Nota 1</th>
+              <th aluno-nota="n2">Nota 2</th>
+              <th aluno-nota="n3">Nota 3</th>
+              <th aluno-nota="n4">Nota 4</th>
+              <th aluno-nota="media">Média</th>
               
           </tr>
         </thead>
@@ -139,12 +139,23 @@
       <script src="js/calc.js"></script>
 
       <script>
+
+          function pegaIndice(provaAluno){
+            const trHeader = document.querySelector("thead tr");
+            const thsHeader = trHeader.querySelectorAll("th");
+
+            const th = trHeader.querySelector(`[aluno-nota = "${provaAluno}"]`);
+            console.log(th)
+
+            return [...thsHeader].indexOf(th)
+          }
+
         const INDICES_NOTAS = {
-          n1: 1,
-          n2: 2,
-          n3: 3,
-          n4: 4,
-          media : 5
+          n1: pegaIndice("n1"),
+          n2: pegaIndice("n2"),
+          n3: pegaIndice("n3"),
+          n4: pegaIndice("n4"),
+          media : pegaIndice("media")
         }
 
         const trs = document.querySelectorAll("tbody tr");
