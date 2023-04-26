@@ -90,7 +90,7 @@
         alvo.insertAdjacentElement("beforeend",listItem2);
 
         const lastItemOriginial = document.querySelector(".original ul").lastElementChild;
-        alvo.insertAdjacentElement("afterbegin", lastItemOriginial);
+        alvo.firstElementChild.insertAdjacentElement("afterbegin", lastItemOriginial);
 
         lastItemOriginial.textContent = "item 0";
 
