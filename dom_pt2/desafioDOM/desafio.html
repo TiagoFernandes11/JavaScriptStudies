@@ -83,6 +83,26 @@
 
 		//remova as duas li's que sobraram na ul original
 
+        const alvo = document.querySelector(".alvo ul");
+        const listItem2 = document.createElement("li");
+        listItem2.textContent = "item 2";
+
+        alvo.insertAdjacentElement("beforeend",listItem2);
+
+        const lastItemOriginial = document.querySelector(".original ul").lastElementChild;
+        alvo.insertAdjacentElement("afterbegin", lastItemOriginial);
+
+        lastItemOriginial.textContent = "item 0";
+
+        let originalUL = document.querySelector(".original ul");
+        originalUL = originalUL.cloneNode(true);
+
+        alvo.insertAdjacentElement("afterbegin", originalUL);
+        originalUL.lastElementChild.remove();
+
+        const original = document.querySelector(".original ul");
+        original.remove();
+
 
     </script>
 </body>
