@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Eventos</h1>
+    <button id="btn1">botao 1</button>
+    <script>
+        const btn1 = document.getElementById("btn1");
+
+        btn1.addEventListener("click", function(){console.log("Clickei no botao")});
+
+        //capture
+        document.addEventListener("click", function(){console.log("Clickei no documento com true(capture)")},true);
+        //bubbling
+        document.addEventListener("click", function(){console.log("Clickei no documento com false(bubbling)")},false);
+    
+    </script>
+</body>
+</html>
