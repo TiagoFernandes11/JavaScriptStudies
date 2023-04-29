@@ -4,7 +4,7 @@
     const descricao = document.getElementById("txtDescricao");
     const contadorContainer = document.getElementById("contador");
     const resta = contadorContainer.getElementsByTagName("span")[0];
-    const maxima = descricao.maxlength;
+    const maxima = descricao.maxLength;
     const formCadastro = document.querySelector(".formCadastro");
 
     formCadastro.addEventListener("submit", function (e){
@@ -21,16 +21,14 @@
         
     })
 
-    contadorContainer.removeAttribute("style");
+    contadorContainer.style.display = "block";
 
-    function checkLenght(){
-        // NaN só deus sabe porque
+
+    descricao.addEventListener("input",function (){
         let numeroLetrasDigitadas = descricao.value.lenght;
         let caracteresRestantes = (parseInt(maxima) - parseInt(numeroLetrasDigitadas));
         resta.textContent = caracteresRestantes;
 
-    }
-
-    descricao.addEventListener("input", checkLenght());
+    });
     
 })();
