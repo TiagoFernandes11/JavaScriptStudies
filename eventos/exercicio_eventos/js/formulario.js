@@ -24,7 +24,7 @@
     contadorContainer.removeAttribute("style");
 
     function checkLenght(){
-
+        // NaN só deus sabe porque
         let numeroLetrasDigitadas = descricao.value.lenght;
         let caracteresRestantes = (parseInt(maxima) - parseInt(numeroLetrasDigitadas));
         resta.textContent = caracteresRestantes;
