@@ -6,29 +6,49 @@
     const resta = contadorContainer.getElementsByTagName("span")[0];
     const maxima = descricao.maxLength;
     const formCadastro = document.querySelector(".formCadastro");
+    const btn = document.getElementById("btn");
+
+    mostrarNumero(maxima);
 
     formCadastro.addEventListener("submit", function (e){
         if(!titulo.value){
-            alert("Preencha todos os campos!");
+            showErrorMessage("Preencha todos os campos!");
             e.preventDefault();
             titulo.focus();
         }
         if(!descricao.value){
-            alert("Preencha todos os campos!");
+            showErrorMessage("Preencha todos os campos!");
             e.preventDefault();
             descricao.focus();
         }
         
     })
 
+    function showErrorMessage(msg){
+        alert(msg);
+    }
+
     contadorContainer.style.display = "block";
 
-
-    descricao.addEventListener("input",function (){
-        let numeroLetrasDigitadas = descricao.value.lenght;
+    function checkLength(){
+        let numeroLetrasDigitadas = descricao.value.length;
         let caracteresRestantes = (parseInt(maxima) - parseInt(numeroLetrasDigitadas));
-        resta.textContent = caracteresRestantes;
+        mostrarNumero(caracteresRestantes);
 
-    });
+    }
+
+    function mostrarNumero(n){
+        resta.textContent = n;
+    }
+
+    descricao.addEventListener("input",checkLength);
+
+    btn.disabled = true;
+
+    const chkAceito = document.getElementById("chkAceito");
+
+    chkAceito.addEventListener("change", function(){
+        btn.disabled = !this.checked;
+    })
     
 })();
