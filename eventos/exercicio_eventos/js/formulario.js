@@ -17,13 +17,7 @@
             });
             e.preventDefault();
             titulo.focus();
-        }
-        if(!descricao.value){
-            showErrorMessage("Preencha todos os campos!");
-            e.preventDefault();
-            descricao.focus();
-        }
-        
+        }        
     })
 
     const feedbackMessage = document.getElementById("feedbackMessage");
