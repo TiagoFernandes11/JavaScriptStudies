@@ -12,7 +12,9 @@
 
     formCadastro.addEventListener("submit", function (e){
         if(!titulo.value){
-            showErrorMessage("Preencha todos os campos!");
+            showErrorMessage("Preencha todos os campos!", function(){
+                titulo.focus();
+            });
             e.preventDefault();
             titulo.focus();
         }
@@ -24,9 +26,29 @@
         
     })
 
+    const feedbackMessage = document.getElementById("feedbackMessage");
+    const feedbackMessageCloser = feedbackMessage.getElementsByTagName("button")[0]
+
     function showErrorMessage(msg){
-        alert(msg);
+        //feedbackMessage.setAttribute("class", "show");
+        //feedbackMessage.textContent = msg;
+        feedbackMessage.classList.add("show");
+        feedbackMessage.getElementsByTagName("p")[0].textContent = msg;
+
+        function hideErrorMessage(){
+            feedbackMessage.classList.remove("show");
+            feedbackMessageCloser.removeEventListener("click", hideErrorMessage);
+
+            if(typeof cb === "function"){
+                cb();
+             }
+        }
+       
+        feedbackMessageCloser.addEventListener("click", hideErrorMessage);
+
     }
+
+
 
     contadorContainer.style.display = "block";
 
@@ -34,7 +56,6 @@
         let numeroLetrasDigitadas = descricao.value.length;
         let caracteresRestantes = (parseInt(maxima) - parseInt(numeroLetrasDigitadas));
         mostrarNumero(caracteresRestantes);
-
     }
 
     function mostrarNumero(n){
