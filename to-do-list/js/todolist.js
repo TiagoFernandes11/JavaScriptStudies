@@ -82,7 +82,22 @@
     }
 
     function clickedUl(e){
-        console.log(e.target.getAttribute("data-action"));
+        const dataAction = e.target.getAttribute("data-action");
+
+        if(!dataAction) return;
+
+
+
+        const actions = {
+            editButton : function(){
+                console.log("editButton");
+            }
+
+        }
+
+        if(actions[dataAction]){
+            actions[dataAction]();
+        }
     }
 
     todoAddForm.addEventListener("submit", function(e){
