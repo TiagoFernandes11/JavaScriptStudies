@@ -10,14 +10,13 @@
             name: "teste 1",
             createdAt: Date.now(),
             completed: false
+        },
+        {
+            name: "teste 2",
+            createdAt: Date.now(),
+            completed: false
         }
     ]
-
-    // function addEventLi(li){
-    //     li.addEventListener("click", function(e){
-    //         console.log(this);
-    //     });
-    // }
 
     function generateLiTaks(obj){
         const li = document.createElement("li");
@@ -27,7 +26,7 @@
         const deleteButton = document.createElement("i");
 
         checkButton.classList.add("button-check");
-        checkButton.innerHTML = '<i class="fas fa-check displayNone"></i>';
+        checkButton.innerHTML = `<i class="fas fa-check ${obj.completed ? "" : "displayNone"}" data-action= "checkButton"></i>`;
         checkButton.setAttribute("data-action", "checkButton");
         li.appendChild(checkButton);
 
@@ -90,23 +89,43 @@
         while(currentLi.nodeName !== "LI"){
             currentLi = currentLi.parentElement;
         }
-        console.log(currentLi);
 
         const currentLiIndex = [...lis].indexOf(currentLi);
-        console.log("indice da li:", currentLiIndex);
 
         const actions = {
             editButton : function(){
-                console.log("editButton");
+                const editContainer = currentLi.querySelector(".editContainer");
+                
+                [...ul.querySelectorAll(".editContainer")].forEach(container => {
+                    container.style.display = "none";
+                });
+
+                currentLi.querySelector(".editInput").value = arrTasks[currentLiIndex].name;
+                editContainer.style.display = "flex";
+
             },
-            cancelButton : function(){
-                console.log("cancelButton");
+            containerEditButton : function(){
+                const valor = currentLi.querySelector(".editInput").value;
+                arrTasks[currentLiIndex].name = valor;
+                renderTasks();
+            },
+            containerCancelButton: function(){
+                currentLi.querySelector(".editContainer").style.display = "none";
+                currentLi.querySelector(".editInput").value = arrTasks[currentLiIndex].name;
             },
             deleteButton : function(){
-                console.log("deleteButton");
+                arrTasks.splice(currentLiIndex, 1);
+                renderTasks();
             },
             checkButton : function(){
-                console.log("checkButton");
+                arrTasks[currentLiIndex].completed = !arrTasks[currentLiIndex].completed;
+                
+                if(arrTasks[currentLiIndex].completed){
+                    currentLi.querySelector(".fa-check").classList.remove("displayNone");
+                } else{
+                    currentLi.querySelector(".fa-check").classList.add("displayNone");
+                }
+                renderTasks();
             }
         }
 
