@@ -22,9 +22,23 @@
     function generateLiTaks(obj){
         const li = document.createElement("li");
         const p = document.createElement("p");
-        p.className = "task-name";
+        const checkButton = document.createElement("button");
+        const editButton = document.createElement("i");
+        const deleteButton = document.createElement("i");
+
+        checkButton.classList.add("button-check");
+        checkButton.innerHTML = '<i class="fas fa-check displayNone"></i>';
+        li.appendChild(checkButton);
+
+        editButton.className = "fas fa-edit";
+        li.appendChild(editButton);
+
+        deleteButton.className = "fas fa-trash-alt";
+        li.appendChild(deleteButton);
+
+        p.classList.add("task-name");
         p.textContent = obj.name;
-        li.className = "todo-item";
+        li.classList.add("todo-item");
         li.appendChild(p);
         addEventLi(li);
         return li;
