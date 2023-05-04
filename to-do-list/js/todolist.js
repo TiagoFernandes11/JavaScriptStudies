@@ -3,7 +3,7 @@
     const itemInput = document.getElementById("item-input");
     const todoAddForm = document.getElementById("todo-add");
     const ul = document.getElementById("todo-list");
-    //const lis = ul.getElementsByTagName("li");
+    const lis = ul.getElementsByTagName("li");
 
     let arrTasks = [
         {
@@ -86,13 +86,28 @@
 
         if(!dataAction) return;
 
+        let currentLi = e.target;
+        while(currentLi.nodeName !== "LI"){
+            currentLi = currentLi.parentElement;
+        }
+        console.log(currentLi);
 
+        const currentLiIndex = [...lis].indexOf(currentLi);
+        console.log("indice da li:", currentLiIndex);
 
         const actions = {
             editButton : function(){
                 console.log("editButton");
+            },
+            cancelButton : function(){
+                console.log("cancelButton");
+            },
+            deleteButton : function(){
+                console.log("deleteButton");
+            },
+            checkButton : function(){
+                console.log("checkButton");
             }
-
         }
 
         if(actions[dataAction]){
