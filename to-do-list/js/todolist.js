@@ -33,9 +33,31 @@
         editButton.className = "fas fa-edit";
         li.appendChild(editButton);
 
+        const containerEdit = document.createElement("div");
+        containerEdit.className = "editContainer";
+        const inputEdit = document.createElement("input");
+        inputEdit.setAttribute("type", "text");
+        inputEdit.className = "editInput";
+        containerEdit.appendChild(inputEdit);
+        const containerEditButton = document.createElement("button");
+        containerEditButton.className = "editButton";
+        containerEditButton.textContent = "Edit";
+        const containerCancelButton = document.createElement("button");
+        containerCancelButton.className = "cancelButton";
+        containerCancelButton.textContent = "Cancel";
+        containerEdit.appendChild(containerEditButton);
+        containerEdit.appendChild(containerCancelButton);
+
+        li.appendChild(containerEdit);
+
         deleteButton.className = "fas fa-trash-alt";
         li.appendChild(deleteButton);
 
+        /*<div class="editContainer">
+        <input class="editInput" type="text">
+        <button class="editButton">Edit</button>
+        <button class="cancelButton">Cancel</button>
+        </div>*/
         p.classList.add("task-name");
         p.textContent = obj.name;
         li.classList.add("todo-item");
