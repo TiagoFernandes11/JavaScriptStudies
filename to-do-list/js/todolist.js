@@ -5,18 +5,27 @@
     const ul = document.getElementById("todo-list");
     const lis = ul.getElementsByTagName("li");
 
-    let arrTasks = [
-        {
-            name: "teste 1",
-            createdAt: Date.now(),
-            completed: false
-        },
-        {
-            name: "teste 2",
-            createdAt: Date.now(),
-            completed: false
-        }
-    ]
+    let arrTasks = getSavedData();
+
+    function getSavedData() {
+        let tasksData = localStorage.getItem("tasks")
+        tasksData = JSON.parse(tasksData)
+ 
+        return tasksData && tasksData.length ? tasksData : [
+            {
+                name: "exemplo 1",
+                createAt: Date.now(),
+                completed: false
+            }
+        ]
+ 
+    }
+
+    function setNewData(){
+        localStorage.setItem("tasks", JSON.stringify(arrTasks));
+    }
+
+    setNewData();
 
     function generateLiTaks(obj){
         const li = document.createElement("li");
@@ -78,6 +87,7 @@
             createdAt: Date.now(),
             completed: false
         })
+        setNewData();
     }
 
     function clickedUl(e){
@@ -101,13 +111,13 @@
                 });
 
                 currentLi.querySelector(".editInput").value = arrTasks[currentLiIndex].name;
-                editContainer.style.display = "flex";
-
+                editContainer.style.display = "flex"; 
             },
             containerEditButton : function(){
                 const valor = currentLi.querySelector(".editInput").value;
                 arrTasks[currentLiIndex].name = valor;
                 renderTasks();
+                setNewData()
             },
             containerCancelButton: function(){
                 currentLi.querySelector(".editContainer").style.display = "none";
@@ -116,6 +126,7 @@
             deleteButton : function(){
                 arrTasks.splice(currentLiIndex, 1);
                 renderTasks();
+                setNewData()
             },
             checkButton : function(){
                 arrTasks[currentLiIndex].completed = !arrTasks[currentLiIndex].completed;
@@ -126,6 +137,7 @@
                     currentLi.querySelector(".fa-check").classList.add("displayNone");
                 }
                 renderTasks();
+                setNewData()
             }
         }
 
