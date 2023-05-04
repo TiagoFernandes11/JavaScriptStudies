@@ -45,10 +45,12 @@
 
         const containerEdit = document.createElement("div");
         containerEdit.className = "editContainer";
+        
         const inputEdit = document.createElement("input");
         inputEdit.setAttribute("type", "text");
         inputEdit.className = "editInput";
         containerEdit.appendChild(inputEdit);
+
         const containerEditButton = document.createElement("button");
         containerEditButton.className = "editButton";
         containerEditButton.textContent = "Edit";
