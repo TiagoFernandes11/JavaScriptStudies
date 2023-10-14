@@ -59,7 +59,7 @@ class Task{
         li.appendChild(checkButton)
 
         p.className = "task-name"
-        p.textContent = obj.name
+        p.textContent = obj.getName();
         li.appendChild(p)
 
         editButton.className = "fas fa-edit"
@@ -72,7 +72,7 @@ class Task{
         const inputEdit = document.createElement("input")
         inputEdit.setAttribute("type", "text")
         inputEdit.className = "editInput"
-        inputEdit.value = obj.name
+        inputEdit.value = obj.getName();
 
         containerEdit.appendChild(inputEdit)
         const containerEditButton = document.createElement("button")
@@ -140,7 +140,8 @@ class Task{
             },
             containerEditButton: function () {
                 const val = currentLi.querySelector(".editInput").value
-                arrInstancesTasks[currentLiIndex].name = val
+                const currentTask = arrInstancesTasks[currentLiIndex];
+                arrInstancesTasks[currentLiIndex] = new Task(val, currentTask.completed, currentTask.createdAt, new Date());
                 renderTasks()
             },
             containerCancelButton: function () {
