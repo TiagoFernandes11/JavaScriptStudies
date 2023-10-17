@@ -1,1 +1,1 @@
-//isNaN()
+//isNaN() retorna booleano
