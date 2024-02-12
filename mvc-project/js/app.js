@@ -16,15 +16,14 @@ let htmlHeaderMaterias = Object.keys(alunos[0].notas)
   })
   .join("");
 htmlHeader.innerHTML += htmlHeaderMaterias;
+document.querySelector("table thead").appendChild(htmlHeader);
 
 // preenche a tabela por aluno
-document.querySelector("table thead").appendChild(htmlHeader);
 alunos.forEach((aluno) => {
-  const header = document.createElement("tr");
-  header.innerHTML = "";
-  header.innerHTML += "<td>" + aluno.nome + "</td>";
+  const htmlBody = document.createElement("tr");
+  htmlBody.innerHTML = "<td>" + aluno.nome + "</td>";
   for (let materia in aluno.media) {
-    header.innerHTML += "<td>" + aluno.media[materia] + "</td>";
+    htmlBody.innerHTML += "<td>" + aluno.media[materia] + "</td>";
   }
-  document.querySelector("table tbody").appendChild(header);
+  document.querySelector("table tbody").appendChild(htmlBody);
 });
