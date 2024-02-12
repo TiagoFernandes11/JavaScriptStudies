@@ -19,11 +19,38 @@ htmlHeader.innerHTML += htmlHeaderMaterias;
 document.querySelector("table thead").appendChild(htmlHeader);
 
 // preenche a tabela por aluno
-alunos.forEach((aluno) => {
-  const htmlBody = document.createElement("tr");
-  htmlBody.innerHTML = "<td>" + aluno.nome + "</td>";
-  for (let materia in aluno.media) {
-    htmlBody.innerHTML += "<td>" + aluno.media[materia] + "</td>";
+function render() {
+  document.querySelector("table tbody").innerHTML = "";
+  alunos.forEach((aluno) => {
+    const htmlBody = document.createElement("tr");
+    htmlBody.innerHTML = "<td>" + aluno.nome + "</td>";
+    for (let materia in aluno.media) {
+      htmlBody.innerHTML += "<td>" + aluno.media[materia] + "</td>";
+    }
+    document.querySelector("table tbody").appendChild(htmlBody);
+  });
+}
+render();
+
+// adicionando alunos
+document.querySelector("form").addEventListener("submit", function (e) {
+  e.preventDefault();
+  const nome = document.getElementById("first_name").value;
+  const novoAluno = {
+    _id: 3,
+    nome,
+    notas: {
+      portugues: [1, 1, 2, 2],
+      matematica: [2, 2, 2, 2],
+      historia: [2, 2, 3, 3],
+      ciencias: [3, 3, 3, 3],
+    },
+  };
+
+  novoAluno.media = {};
+  for (let materia in novoAluno.notas) {
+    novoAluno.media[materia] = avarege(...novoAluno.notas[materia]);
   }
-  document.querySelector("table tbody").appendChild(htmlBody);
+  alunos.push(novoAluno);
+  render();
 });
