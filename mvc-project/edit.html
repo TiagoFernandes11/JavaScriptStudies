@@ -109,9 +109,13 @@
     <!-- <script src="js/app.js"></script> -->
 
     <script>
+      const alunosService = new AlunosService();
       const paramsString = window.location.search;
-      const id = parseInt(new URLSearchParams(paramsString).get("id"));
-      console.log(alunosService.searchById(id));
+      const URLParams = new URLSearchParams(paramsString);
+      const id = parseInt(URLParams.get("id"));
+      const aluno = alunosService.searchById(id);
+
+      document.getElementById("first_name").value = aluno.nome;
     </script>
   </body>
 </html>
