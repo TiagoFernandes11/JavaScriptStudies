@@ -26,8 +26,13 @@ class AlunosView {
     alunos.forEach((aluno) => {
       const htmlBody = document.createElement("tr");
       htmlBody.innerHTML = "<td>" + aluno.nome + "</td>";
-      Object.keys(aluno.media).forEach((materia) => {
-        htmlBody.innerHTML += "<td>" + aluno.media[materia] + "</td>";
+      this.materias.forEach((materia) => {
+        htmlBody.innerHTML +=
+          "<td>" +
+          (aluno.media[materia] !== undefined
+            ? aluno.media[materia]
+            : `<a href=edit.html?id=${aluno._id}> incluir nota </a>`) +
+          "</td>";
       });
       this.tableBody.appendChild(htmlBody);
     });

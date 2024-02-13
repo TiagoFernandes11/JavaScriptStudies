@@ -38,19 +38,11 @@ const alunosController = new AlunosController(alunoService, alunosView);
 // render();
 
 // // adicionando alunos
-// document.querySelector("form").addEventListener("submit", function (e) {
-//   e.preventDefault();
-//   const nome = document.getElementById("first_name").value;
-//   const novoAluno = {
-//     _id: 3,
-//     nome,
-//     notas: {
-//       portugues: [1, 1, 2, 2],
-//       matematica: [2, 2, 2, 2],
-//       historia: [2, 2, 3, 3],
-//       ciencias: [3, 3, 3, 3],
-//     },
-//   };
+document.querySelector("form").addEventListener("submit", function (e) {
+  e.preventDefault();
+  const nome = document.getElementById("first_name").value;
+  alunosController.add({ nome });
+});
 
 //   novoAluno.media = {};
 //   for (let materia in novoAluno.notas) {
