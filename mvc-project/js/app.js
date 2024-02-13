@@ -23,35 +23,18 @@ const alunos = [
 
 const alunoService = new AlunosService();
 
-// calcula media e adiciona atributo media para cada aluno em cada materia
 alunos.forEach((aluno) => {
   alunoService.add(new AlunoModel(aluno));
 });
 
-// // preenche o cabeçario da tabela de medias
-// const htmlHeader = document.createElement("tr");
-// htmlHeader.innerHTML = "<td>Nome</td>";
+const alunosView = new AlunosView(document.querySelector("[alunos-table]"));
 
-// let htmlHeaderMaterias = Object.keys(alunos[0].notas)
-//   .map((materia) => {
-//     return "<td>" + materia + "</td>";
-//   })
-//   .join("");
-// htmlHeader.innerHTML += htmlHeaderMaterias;
-// document.querySelector("table thead").appendChild(htmlHeader);
+const alunosController = new AlunosController(alunoService, alunosView);
+
+// preenche o cabeçario da tabela de medias
 
 // // preenche a tabela por aluno
-// function render() {
-//   document.querySelector("table tbody").innerHTML = "";
-//   alunos.forEach((aluno) => {
-//     const htmlBody = document.createElement("tr");
-//     htmlBody.innerHTML = "<td>" + aluno.nome + "</td>";
-//     for (let materia in aluno.media) {
-//       htmlBody.innerHTML += "<td>" + aluno.media[materia] + "</td>";
-//     }
-//     document.querySelector("table tbody").appendChild(htmlBody);
-//   });
-// }
+
 // render();
 
 // // adicionando alunos

@@ -1,6 +1,7 @@
 class AlunoModel {
   constructor({ nome, _id, notas } = { notas: {} }) {
     this._id = _id !== undefined ? _id : this.generateId();
+    this.notas = notas;
     this.nome = nome;
     this.media = {};
 
