@@ -13,4 +13,10 @@ class AlunosService {
   edit(aluno) {
     console.log("edit method todo");
   }
+
+  searchById(id) {
+    return this.alunos.find((aluno) => {
+      return aluno._id === id;
+    });
+  }
 }
