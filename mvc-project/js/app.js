@@ -23,7 +23,10 @@
 
 const alunoService = new AlunosService();
 
-const alunosView = new AlunosView(document.querySelector("[alunos-table]"));
+const alunosView = new AlunosView(
+  document.querySelector("[alunos-table]"),
+  new MateriasService().materias
+);
 
 const alunosController = new AlunosController(alunoService, alunosView);
 
