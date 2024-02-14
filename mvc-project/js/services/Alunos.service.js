@@ -12,7 +12,7 @@ class AlunosService {
     this.updateLocalStorage();
   }
 
-  edit(aluno) {
+  edit(aluno, notas) {
     console.log("edit method todo");
   }
 
