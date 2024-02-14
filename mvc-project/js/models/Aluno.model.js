@@ -8,14 +8,17 @@ class AlunoModel {
     if (this._id > AlunoModel.maxId) {
       AlunoModel.maxId = this._id;
     }
-
-    for (let materia in this.notas) {
-      this.media[materia] = average(...this.notas[materia]);
-    }
+    this.generateAverage();
   }
 
   generateId() {
     return AlunoModel.maxId + 1;
+  }
+
+  generateAverage() {
+    for (let materia in this.notas) {
+      this.media[materia] = average(...this.notas[materia]);
+    }
   }
 }
 

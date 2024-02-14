@@ -12,8 +12,9 @@ class AlunosService {
     this.updateLocalStorage();
   }
 
-  edit(aluno, notas) {
-    console.log("edit method todo");
+  edit(aluno) {
+    aluno.generateAverage();
+    this.updateLocalStorage();
   }
 
   searchById(id) {

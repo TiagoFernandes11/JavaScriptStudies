@@ -25,7 +25,8 @@ class AlunosView {
     document.querySelector("table tbody").innerHTML = "";
     alunos.forEach((aluno) => {
       const htmlBody = document.createElement("tr");
-      htmlBody.innerHTML = "<td>" + aluno.nome + "</td>";
+      htmlBody.innerHTML =
+        `<td><a href=edit.html?id=${aluno._id}>` + aluno.nome + "</a></td>";
       this.materias.forEach((materia) => {
         htmlBody.innerHTML +=
           "<td>" +

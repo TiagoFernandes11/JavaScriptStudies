@@ -2,29 +2,29 @@ class EditAlunoView {
   constructor(form, materias) {
     this.form = form;
     this.container = form.querySelector("[data-edit-notas]");
-    this.meterias = materias;
+    this.materias = materias;
   }
 
   render(aluno) {
-    const html = this.meterias
+    const html = this.materias
       .map((materia) => {
         return `
-          <div class="row">
+          <div class="row" data-materia="${materia}">
 
           <div class="input-field col s4">
-            <input id="materia_${materia}" type="number" class="validate" disabled value="${materia}"/>
+            <input id="materia_${materia}" type="text" class="validate" value="${materia}" disabled/>
           </div>
           <div class="input-field col s2">
-            <input id="nota_materia_1" type="number" class="validate" />
+            <input data-trimestre="0" id="nota_${materia}_0" type="number" class="validate" value"${aluno?.notas?.[materia]?.[0]}" />
           </div>
           <div class="input-field col s2">
-            <input id="nota_materia_2" type="number" class="validate" />
+            <input data-trimestre="1" id="nota_${materia}_1" type="number" class="validate" value"${aluno?.notas?.[materia]?.[1]}"/>
           </div>
           <div class="input-field col s2">
-            <input id="nota_materia_3" type="number" class="validate" />
+            <input data-trimestre="2" id="nota_${materia}_2" type="number" class="validate" value"${aluno?.notas?.[materia]?.[2]}"/>
           </div>
           <div class="input-field col s2">
-            <input id="nota_materia_4" type="number" class="validate" />
+            <input data-trimestre="3" id="nota_${materia}_3" type="number" class="validate" value"${aluno?.notas?.[materia]?.[3]}"/>
           </div>
         </div>
           `;

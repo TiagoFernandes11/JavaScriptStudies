@@ -8,7 +8,20 @@ class EditAlunoController {
 
   edit(aluno, nome) {
     aluno.nome = nome;
+    
+    const notas = {};
 
+    const materiasRow = Array.from(
+      this.view.container.querySelectorAll("[data-materia]")
+    );
+
+    materiasRow.forEach((row) => {
+      const notasRow = Array.from(row.querySelectorAll("[data-trimestre]"));
+      notas[row.getAttribute("data-materia")] = notasRow.map((nota) => {
+        return parseFloat(nota.value) || 0;
+      });
+    });
+    aluno.notas = notas
     this.service.edit(aluno, notas);
   }
 }
