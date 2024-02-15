@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Exemplo com XMLHttpRequest</h1>
+
+    <script>
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", "dados.json");
+      xhr.send(null);
+
+      xhr.onreadystatechange = () => {
+        console.log(xhr.readyState);
+        console.log(xhr.status);
+
+        if (xhr.readyState === 4 && (xhr.status == 200 || xhr.status == 304)) {
+          console.log(JSON.parse(xhr.response));
+        } else {
+          alert("Algo deu errado." + xhr.status);
+        }
+      };
+    </script>
+  </body>
+</html>
