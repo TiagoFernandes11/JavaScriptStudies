@@ -1,18 +1,15 @@
 import { Task } from "./model/task.model.js";
 import { createXMLHttpRequest } from "./createXMLHttpRequest.js";
+import { TasksServices } from "./services/tasks.services.js";
 
 // "https://jsonplaceholder.typicode.com/users/1/todos"
 
-createXMLHttpRequest("GET", "http://localhost:3000/tasks", init);
+const taskService = new TasksServices();
 
-function init(arrTasks) {
-  if (arrTasks.error) return;
-  const arrInstancesTasks = arrTasks.map((task) => {
-    const { title, completed, createdAt, updatedAt } = task;
-    return new Task(title, completed, createdAt, updatedAt);
-  });
+taskService.getTasks(init);
 
-  //ARMAZENAR O DOM EM VARIAVEIS
+function init(arrInstancesTasks) {
+  if (arrInstancesTasks.error) return;
   const itemInput = document.getElementById("item-input");
   const todoAddForm = document.getElementById("todo-add");
   const ul = document.getElementById("todo-list");
@@ -84,7 +81,6 @@ function init(arrTasks) {
       "POST",
       "http://localhost:3000/tasks",
       () => {
-        console.log(JSON.stringify(new Task(title)));
         renderTasks();
       },
       JSON.stringify({ title, completed: false, createdAt: "", updatedAt: "" })
@@ -142,8 +138,6 @@ function init(arrTasks) {
     e.preventDefault();
     console.log(itemInput.value);
     addTask(itemInput.value);
-    renderTasks();
-
     itemInput.value = "";
     itemInput.focus();
   });
