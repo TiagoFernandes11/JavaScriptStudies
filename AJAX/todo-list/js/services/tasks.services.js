@@ -10,6 +10,15 @@ export class TasksServices {
     if (!task instanceof Task) {
       throw TypeError("Task must be an instance of taskmodel");
     }
+    const fn = (dados) => {
+      console.log(dados);
+    };
+    createXMLHttpRequest(
+      "POST",
+      "http://localhost:3000/tasks",
+      fn,
+      JSON.stringify(task)
+    );
     this.tasks.push(task);
   }
 

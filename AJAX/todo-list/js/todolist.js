@@ -1,10 +1,14 @@
 import { Task } from "./model/task.model.js";
 import { createXMLHttpRequest } from "./createXMLHttpRequest.js";
 import { TasksServices } from "./services/tasks.services.js";
+import { TaskController } from "./controllers/task.controller.js";
+import { TaskView } from "./view/task.view.js";
 
 // "https://jsonplaceholder.typicode.com/users/1/todos"
 
 const taskService = new TasksServices();
+const taskView = new TaskView();
+const taskController = new TaskController(taskService, taskView);
 
 taskService.getTasks(init);
 
@@ -34,7 +38,7 @@ function init(arrInstancesTasks) {
     li.appendChild(checkButton);
 
     p.className = "task-name";
-    p.textContent = obj.getTitle();
+    p.textContent = obj.title;
     li.appendChild(p);
 
     editButton.className = "fas fa-edit";
@@ -46,7 +50,7 @@ function init(arrInstancesTasks) {
     const inputEdit = document.createElement("input");
     inputEdit.setAttribute("type", "text");
     inputEdit.className = "editInput";
-    inputEdit.value = obj.getTitle();
+    inputEdit.value = obj.title;
 
     containerEdit.appendChild(inputEdit);
     const containerEditButton = document.createElement("button");
@@ -137,7 +141,7 @@ function init(arrInstancesTasks) {
   todoAddForm.addEventListener("submit", function (e) {
     e.preventDefault();
     console.log(itemInput.value);
-    addTask(itemInput.value);
+    taskController.add(itemInput.value);
     itemInput.value = "";
     itemInput.focus();
   });
