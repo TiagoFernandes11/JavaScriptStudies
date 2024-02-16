@@ -1,37 +1,15 @@
 import { Task } from "./model/task.model.js";
 import { createXMLHttpRequest } from "./createXMLHttpRequest.js";
 
-let arrTasks = [
-  {
-    name: "task 1",
-    completed: true,
-    createdAt: 1592667375012,
-    updatedAt: null,
-  },
-  {
-    name: "task 2",
-    createdAt: 1581667345723,
-    updatedAt: 1592667325018,
-  },
-  {
-    name: "task 3",
-    completed: true,
-    createdAt: 1592667355018,
-    updatedAt: 1593677457010,
-  },
-];
+// "https://jsonplaceholder.typicode.com/users/1/todos"
 
-createXMLHttpRequest(
-  "GET",
-  "https://jsonplaceholder.typicode.com/users/1/todos",
-  init
-);
+createXMLHttpRequest("GET", "http://localhost:3000/tasks", init);
 
 function init(arrTasks) {
   if (arrTasks.error) return;
   const arrInstancesTasks = arrTasks.map((task) => {
-    const { title, completed } = task;
-    return new Task(title, completed);
+    const { title, completed, createdAt, updatedAt } = task;
+    return new Task(title, completed, createdAt, updatedAt);
   });
 
   //ARMAZENAR O DOM EM VARIAVEIS
