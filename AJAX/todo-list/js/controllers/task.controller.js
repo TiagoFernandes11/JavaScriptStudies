@@ -1,5 +1,4 @@
 import { Task } from "../model/task.model.js";
-import { TasksServices } from "../services/tasks.services.js";
 
 export class TaskController {
   constructor(service, view) {
@@ -9,5 +8,6 @@ export class TaskController {
 
   add(title) {
     this.service.add(new Task(title));
+    this.view.render();
   }
 }
