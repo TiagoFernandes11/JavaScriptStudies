@@ -79,10 +79,16 @@ function init(arrTasks) {
     });
   }
 
-  function addTask(taskName) {
-    // adicione uma nova instancia de Task
-    arrInstancesTasks.push(new Task(taskName));
-    renderTasks();
+  function addTask(title) {
+    createXMLHttpRequest(
+      "POST",
+      "http://localhost:3000/tasks",
+      () => {
+        console.log(JSON.stringify(new Task(title)));
+        renderTasks();
+      },
+      JSON.stringify({ title, completed: false, createdAt: "", updatedAt: "" })
+    );
   }
 
   function clickedUl(e) {

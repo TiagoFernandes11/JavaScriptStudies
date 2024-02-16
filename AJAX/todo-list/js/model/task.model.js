@@ -1,8 +1,8 @@
 export class Task {
   constructor(title, completed, createdAt, updatedAt) {
-    if (!title) {
-      throw new Error("Task need a required parameter: name");
-    }
+    // if (!title) {
+    //   throw new Error("Task need a required parameter: title");
+    // }
     let _title = title;
     this.completed = completed || false;
     this.createdAt = createdAt || Date.now();
