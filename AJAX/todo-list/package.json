@@ -1,16 +1,16 @@
 {
   "name": "todolist",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "json-server db.json --static ./"
+    "server": "json-server --watch db.json --static ./"
   },
   "keywords": [],
   "author": "Tiago Fernandes Ribeiro <tiagofernandesribeiro@yahoo.com.br>",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
-    "json-server": "^1.0.0-alpha.23"
+    "json-server": "^0.16.3"
   }
 }
